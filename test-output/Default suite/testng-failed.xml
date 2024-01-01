@@ -3,11 +3,12 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="test.RestAssuredwithBDD">
+      <class name="test.GETBooking">
         <methods>
-          <include name="test1"/>
+          <include name="tearUp"/>
+          <include name="pathParameter1"/>
         </methods>
-      </class> <!-- test.RestAssuredwithBDD -->
+      </class> <!-- test.GETBooking -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

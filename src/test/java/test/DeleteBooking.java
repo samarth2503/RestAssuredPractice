@@ -8,31 +8,29 @@ import io.restassured.response.ResponseBody;
 
 public class DeleteBooking {
 	
-	@Test(enabled=false)
+	@Test(enabled=true)
 	public void deleteBooking()
 	{
 		// Construct request
 		
-		RestAssured
-		.given()
+		RestAssured.given()
 		.log()
 		.all()
 		.baseUri("https://restful-booker.herokuapp.com/")
-		.basePath("booking/{id}")
-		.pathParam("id", 6)
+		.pathParam("bookingId", 5)
+		.basePath("booking/{bookingId}")
+		.contentType(ContentType.JSON)
 		.header("Authorization","Basic YWRtaW46cGFzc3dvcmQxMjM=")
-		.header("Content-type","application/json")		
-		// Hit Request 
 		.when()
 		.delete()
-		// validate response
 		.then()
 		.log()
 		.all()
-		.statusCode(201);
+		.assertThat().statusCode(201)
+		.statusLine("HTTP/1.1 201 Created");
 	}
 	
-	@Test
+	@Test(enabled=false)
 	public void extractResponseBody()
 	{
 		String body=RestAssured

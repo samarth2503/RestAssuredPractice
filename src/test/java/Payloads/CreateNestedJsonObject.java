@@ -4,33 +4,32 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 import io.restassured.RestAssured;
+import io.restassured.http.ContentType;
 
 public class CreateNestedJsonObject {
 
 	public static void main(String[] args) {
 		
-		Map<String,Object> jsonObject = new LinkedHashMap<>();
+		Map<String,Object> jsonObjectPayload = new LinkedHashMap<String,Object>();
 		
-		jsonObject.put("id", 1);
-		jsonObject.put("first_name", "Samarth");
-		jsonObject.put("last_name", "Jain");
-		jsonObject.put("married", false);
-		jsonObject.put("Salary", 123.45);
+		jsonObjectPayload.put("id", "1");
+		jsonObjectPayload.put("first_name", "Samarth");
+		jsonObjectPayload.put("last_name", "Jain");
+		jsonObjectPayload.put("married", false);
+		jsonObjectPayload.put("salary", "123.45");
 		
-		Map<String,Object> addressObject = new LinkedHashMap<>();
+		Map<String,Object> addressPayload = new LinkedHashMap<String,Object>();
+		addressPayload.put("no", "#81");
+		addressPayload.put("streetname", "ABC Lane");
+		addressPayload.put("city", "Banaglore");
+		addressPayload.put("state", "KA");
 		
-		addressObject.put("streetName", "MG Road");
-		addressObject.put("city", "Mumbai");
-		addressObject.put("state", "MH");
-		addressObject.put("streetNo", "#81");
-		
-		jsonObject.put("address", addressObject);
+		jsonObjectPayload.put("address", addressPayload);
 		
 		RestAssured.given()
-		.log()
-		.all()
-		.body(jsonObject)
-		.get();
+		.log().all()
+		.contentType(ContentType.JSON)
+		.body(jsonObjectPayload);
 		
 	}
 

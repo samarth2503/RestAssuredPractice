@@ -2,6 +2,7 @@ package Payloads;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -13,59 +14,60 @@ public class CreateComplexPayloadUsingMapList {
 
 	public static void main(String[] args) {
 		
-		List<Map<String,Object>> finalPayload = new LinkedList<>();
+		List<Map<String,Object>> finalPayload = new ArrayList<Map<String,Object>>();
 		
-		Map<String,Object> firstObject = new LinkedHashMap<>();
+		Map<String,Object> firstJsonObject = new LinkedHashMap<String,Object>();
 		
-		firstObject.put("id", 1);
-		firstObject.put("first_name", "Samarth");
-		firstObject.put("last_name", "Jain");
-		firstObject.put("email", "samarthjain68@gmail.com");
-		firstObject.put("gender", "Male");
+		firstJsonObject.put("id", "1");
+		firstJsonObject.put("first_name", "Samarth");
+		firstJsonObject.put("last_name", "Jain");
+		firstJsonObject.put("email", "samarjain@deloitte.com");
+		firstJsonObject.put("gender", "Male");
 		
-		List<Object> mobile = Arrays.asList("5566778821","4422116680");
+		List<String> mobileNo = new ArrayList<String>();
 		
-		firstObject.put("mobile", mobile);
+		mobileNo.add("9619399027");
+		mobileNo.add("3892091886");
 		
-		Map<String,Object> skillsObject = new LinkedHashMap<>();
+		firstJsonObject.put("mobile", mobileNo);
 		
-		skillsObject.put("name", "Testing");
-		skillsObject.put("proficiency", "Medium");
+		Map<String,Object> skillsSet1 = new LinkedHashMap<String,Object>();
 		
-		firstObject.put("skills", skillsObject);
+		skillsSet1.put("name", "Testing");
+		skillsSet1.put("proficiency", "Medium");
 		
-		finalPayload.add(firstObject);
+		firstJsonObject.put("skills", skillsSet1);
 		
-		Map<String,Object> secondObject = new LinkedHashMap<>();
+		finalPayload.add(firstJsonObject);
 		
-		secondObject.put("id", 2);
-		secondObject.put("first_name", "Joe");
-		secondObject.put("last_name", "Root");
-		secondObject.put("email", "joeroot68@gmail.com");
-		secondObject.put("gender", "Male");
+		Map<String,Object> secondJsonObject = new LinkedHashMap<String,Object>();
 		
-		List<Map<String,Object>> skillSet = new ArrayList<>();
+		secondJsonObject.put("id", "2");
+		secondJsonObject.put("first_name", "Alex");
+		secondJsonObject.put("last_name", "Mahajan");
+		secondJsonObject.put("email", "alexn@deloitte.com");
+		secondJsonObject.put("gender", "Male");
 		
-		Map<String,Object> skill = new LinkedHashMap<>(); 
+		List<Map<String,Object>> skillsList = new ArrayList<>();
 		
-		skill.put("name", "Testing");
-		skill.put("proficiency", "Medium");
+		skillsList.add(skillsSet1);
 		
-		skillSet.add(skill);
+		Map<String,Object> javaSkills = new LinkedHashMap<String,Object>();
 		
-		Map<String,Object> skill2 = new LinkedHashMap<>();
-		List<String> certificate = Arrays.asList("OCJP 11","OCJP 12");
+		javaSkills.put("name", "Java");
+		javaSkills.put("proficiency", "Medium");
 		
-		skill2.put("name", "Java");
-		skill2.put("proficiency", "Medium");
+		List<String> cerifications = Arrays.asList("OCJP 11","OCJP 12");
 		
-		skill2.put("certification", certificate);
+		javaSkills.put("certifications", cerifications);
 		
-		skillSet.add(skill2);
+		skillsList.add(javaSkills);
 		
-		secondObject.put("skill",skillSet);
+		secondJsonObject.put("skills", skillsList);
 		
-		finalPayload.add(secondObject);
+		finalPayload.add(secondJsonObject);
+		
+		
 		
 		RestAssured.given()
 		.log()

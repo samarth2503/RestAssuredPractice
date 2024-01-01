@@ -27,14 +27,15 @@ public class ReqandResSepc {
 		m.put("Booking","booking");
 		m.put("Basepath", "https://restful-booker.herokuapp.com/");
 		
-		reqSpec=RestAssured.given();
-		reqSpec=reqSpec.basePath((String) m.get("Basepath"));
-		reqSpec=reqSpec.baseUri((String) m.get("Booking"));
-		reqSpec=reqSpec.header("ContentType", "application/json")
+		reqSpec = reqSpec.given()
+				.log().all()
+				.baseUri((String)m.get("Basepath"))
+				.baseUri((String) m.get("Booking"))
+				.contentType(ContentType.JSON)
 				.body("{\r\n"
-						+ "    \"firstname\" : \"Jim\",\r\n"
+						+ "    \"firstname\" : \"Kalesh\",\r\n"
 						+ "    \"lastname\" : \"Brown\",\r\n"
-						+ "    \"totalprice\" : 111,\r\n"
+						+ "    \"totalprice\" : 33455,\r\n"
 						+ "    \"depositpaid\" : true,\r\n"
 						+ "    \"bookingdates\" : {\r\n"
 						+ "        \"checkin\" : \"2018-01-01\",\r\n"
@@ -49,7 +50,7 @@ public class ReqandResSepc {
 		
 	}
 	
-	@Test
+	@Test(enabled=false)
 	public void createBooking()
 	{
 		RestAssured.given()

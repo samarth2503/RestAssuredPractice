@@ -15,7 +15,8 @@ public class InlineAssertionForArray {
 		.then()
 		.log()
 		.all()
-		.body("bookingid", Matchers.hasItems(90,10));
+		.body("bookingid", Matchers.hasItems(90,10))
+		.body("bookingid", Matchers.contains(119));
 		
 
 	}

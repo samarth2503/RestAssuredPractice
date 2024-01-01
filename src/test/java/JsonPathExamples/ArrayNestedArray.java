@@ -52,6 +52,9 @@ public class ArrayNestedArray {
 		System.out.println(js1);
 		String str=jsPath.getString("[0].address.city");
 		System.out.println(str);
+		
+		List<Object> city = jsPath.getList("[0].address.city");
+		System.out.println(city);
 	}
 
 }

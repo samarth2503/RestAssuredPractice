@@ -89,6 +89,7 @@ public class RestAssuredwithBDD {
 				.log()
 				.all()
 				.extract()
+				
 				.body()
 				//.asString();
 				.asPrettyString();

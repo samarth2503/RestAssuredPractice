@@ -9,7 +9,7 @@ public class MockyDeisgn {
 		RestAssured.given()
 		.log()
 		.all()
-		.post("https://run.mocky.io/v3/0e540ab7-009f-4884-85bb-e2298141965a")
+		.post("https://run.mocky.io/v3/6c1c7e46-2e1d-4f4d-8911-ceec33321aa8")
 		.then()
 		.log()
 		.all();

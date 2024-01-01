@@ -28,6 +28,7 @@ public class JsonPathIntro {
 		//Object obj1 = js.get("firstname");						// classCast Exception
 		String last=js.getString("lastname");
 		System.out.println(last);
+	
 		
 	//	System.out.println((Object)js.get("firstname1"));
 	}

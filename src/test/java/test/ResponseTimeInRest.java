@@ -12,6 +12,7 @@ import org.testng.annotations.Test;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
+import io.restassured.response.ValidatableResponse;
 import io.restassured.specification.RequestSpecification;
 
 public class ResponseTimeInRest {
@@ -53,7 +54,7 @@ public class ResponseTimeInRest {
 		.when()
 		.contentType(ContentType.JSON)
 		.post();
-		
+
 		long resTime=res.time();
 		
 		System.out.println("Response Time "+resTime);
@@ -68,15 +69,16 @@ public class ResponseTimeInRest {
 		System.out.println("Response Body is "+res.body().toString());
 		
 		// To validate that resposne time not greater than 2 sec
-		res.then().assertThat().time(Matchers.greaterThan(2000L));
+		res.then().time(Matchers.lessThan(2000L));
 		
 		// To validate the time Unit
-		res.then().assertThat().time(Matchers.greaterThan(1L), TimeUnit.SECONDS);
+		res.then().assertThat().time(Matchers.greaterThan(5L), TimeUnit.SECONDS);
 		
 		// To Validate Time in between 2Sec and 5 sec
 		res.then().assertThat().time(Matchers.both(Matchers.greaterThan(2000L)).and(Matchers.lessThan(5000L)));
 		
 		res.then().assertThat().time(Matchers.greaterThanOrEqualTo(2000L));
+		
 	}
 
 }

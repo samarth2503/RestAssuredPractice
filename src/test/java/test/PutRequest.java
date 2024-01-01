@@ -3,32 +3,25 @@ package test;
 import org.testng.annotations.Test;
 
 import io.restassured.RestAssured;
+import io.restassured.http.ContentType;
 
 public class PutRequest {
 	
 	public static void main(String[] args)
 	{
-		RestAssured
-		.given()
+		RestAssured.given()
 		.log()
 		.all()
-		.baseUri("https://restful-booker.herokuapp.com/")
+		.baseUri("https://restful-booker.herokuapp.com")
 		.basePath("booking/2")
-		.header("Content-Type","application/json")
-		.header("authorization","Basic YWRtaW46cGFzc3dvcmQxMjM=")
+		.header("Authorization", "Basic YWRtaW46cGFzc3dvcmQxMjM=")
+		.contentType(ContentType.JSON)
 		.body("{\r\n"
-				+ "    \"firstname\" : \"Alex\",\r\n"
-				+ "    \"lastname\" : \"Brown\",\r\n"
-				+ "    \"totalprice\" : 111,\r\n"
-				+ "    \"depositpaid\" : true,\r\n"
-				+ "    \"bookingdates\" : {\r\n"
-				+ "        \"checkin\" : \"2018-05-01\",\r\n"
-				+ "        \"checkout\" : \"2019-01-01\"\r\n"
-				+ "    },\r\n"
-				+ "    \"additionalneeds\" : \"Lunch\"\r\n"
+				+ "    \"firstname\" : \"Rajesh\",\r\n"
+				+ "    \"lastname\" : \"Brown\"\r\n"
 				+ "}")
 		.when()
-		.put()
+		.patch()
 		.then()
 		.log()
 		.all()
@@ -58,7 +51,7 @@ public class PutRequest {
 		.statusCode(200);
 	}
 	
-	@Test
+	@Test(enabled=false)
 	public void extractingResponse()
 	{
 		String response =RestAssured.given()

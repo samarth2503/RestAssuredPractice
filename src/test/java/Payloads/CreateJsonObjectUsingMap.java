@@ -10,18 +10,20 @@ public class CreateJsonObjectUsingMap {
 
 	public static void main(String[] args) {
 		
-		Map<String,String> jsonObject = new LinkedHashMap<>();
+		Map<String,Object> jsonObject = new HashMap<String,Object>();
 		
-		jsonObject.put("id", "1");
+		jsonObject.put("id", 1);
 		jsonObject.put("first_name", "Samarth");
 		jsonObject.put("last_name", "Jain");
-		jsonObject.put("married", "false");
-		jsonObject.put("Salary", "123.45");
+		jsonObject.put("married", false);
+		jsonObject.put("salary", 45.67);
+		
+		// RestAssured with Automatically parse map to JsonObject
 		
 		RestAssured.given()
 		.log()
 		.all()
-		.body(jsonObject)
+		.body(jsonObject)							// Take Object as parameter
 		.get();
 
 	}

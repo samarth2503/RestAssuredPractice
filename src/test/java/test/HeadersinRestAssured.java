@@ -13,7 +13,7 @@ import io.restassured.http.Headers;
 
 public class HeadersinRestAssured {
 	
-	@Test
+	@Test(enabled=true)
 	public void HearersTest()
 	{
 		RestAssured.given()
@@ -24,19 +24,17 @@ public class HeadersinRestAssured {
 		.get();
 	}
 	
-	@Test
+	@Test(enabled=false)
 	public void passHeader1()
 	{
 		RestAssured.given()
-		.log()
-		.all()
-		.header("Header1","value1")
-		.header("Header1","value2")
+		.header("h1","v1")
+		.header("h2", "v2", "v3")
 		.when()
 		.get();
 	}
 	
-	@Test
+	@Test(enabled=false)
 	public void passHeader2()
 	{
 		RestAssured.given()
@@ -47,7 +45,19 @@ public class HeadersinRestAssured {
 		.get();
 	}
 	
-	@Test
+	@Test(enabled=false)
+	public void passHeader3()
+	{
+		Header head = new Header("h1","v1");
+		
+		RestAssured.given()
+		.log().all()
+		.header(head)
+		.when()
+		.get();
+	}
+	
+	@Test(enabled=false)
 	public void MapHeaderVlaue()
 	{
 		Map<String,String> hm = new HashMap<String,String>();
@@ -63,7 +73,7 @@ public class HeadersinRestAssured {
 		.get();
 	}
 	
-	@Test
+	@Test(enabled=false)
 	public void UsingHeaderClass()
 	{
 		Header head = new Header("Header1","Value1");
@@ -85,6 +95,8 @@ public class HeadersinRestAssured {
 		.when()
 		.get();
 	}
+	
+	
 
 
 

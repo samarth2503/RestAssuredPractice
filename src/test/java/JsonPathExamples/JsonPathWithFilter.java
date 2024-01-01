@@ -10,11 +10,12 @@ public class JsonPathWithFilter {
 
 	public static void main(String[] args) {
 		
-		String filePath = "C:\\Users\\samarth.jain\\eclipse-workspace\\RestAssuredPractice\\src\\test\\resources\\01201920ACXPK3463A82J.json";
+		String filePath = "C:\\Users\\samarjain\\eclipse-workspace\\RestAssuredPractice\\src\\test\\resources\\01201920ACXPK3463A82J.json";
 		
 		File f = new File(filePath);
 		
 		JsonPath js = new JsonPath(f);
+		
 		
 		List<String> date = js.getList("cdnur.nt_dt");
 		System.out.println(date);

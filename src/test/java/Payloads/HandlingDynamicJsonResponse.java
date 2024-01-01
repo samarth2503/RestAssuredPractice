@@ -10,19 +10,19 @@ public class HandlingDynamicJsonResponse {
 	public static void main(String[] args) {
 		
 		List l = RestAssured.given()
-		.get("https://run.mocky.io/v3/0e540ab7-009f-4884-85bb-e2298141965a")
+		.get("https://run.mocky.io/v3/64ae3122-18b2-4ed9-9561-1bfd32ddc7bb")
 		.as(List.class);
 		
-		System.out.println(l);
+		System.out.println(l.size());
 		
 		//com.fasterxml.jackson.databind.exc.MismatchedInputException: Cannot deserialize instance of `
 		//java.util.ArrayList<java.lang.Object>` out of START_OBJECT token
 		
 		Map m = RestAssured.given()
-				.get("https://run.mocky.io/v3/47556716-a28e-4e37-b4d5-e2cde28ae67c")
+				.get("https://run.mocky.io/v3/afbfaba4-fb9d-466a-868a-ded98d767ea4")
 				.as(Map.class);
 		
-		System.out.println(m);
+		System.out.println(m.keySet());
 		
 		//com.fasterxml.jackson.databind.exc.MismatchedInputException: Cannot deserialize instance of 
 		//`java.util.LinkedHashMap<java.lang.Object,java.lang.Object>` out of START_ARRAY token

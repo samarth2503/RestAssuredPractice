@@ -1,17 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="2" total="3" passed="1" failed="0" skipped="0">
+<testng-results ignored="2" total="4" passed="2" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2021-09-08T21:34:09 IST" name="Default suite" finished-at="2021-09-08T21:34:12 IST" duration-ms="3461">
+  <suite started-at="2023-12-21T13:47:40 IST" name="Default suite" finished-at="2023-12-21T13:47:44 IST" duration-ms="4497">
     <groups>
     </groups>
-    <test started-at="2021-09-08T21:34:09 IST" name="Default test" finished-at="2021-09-08T21:34:12 IST" duration-ms="3461">
-      <class name="test.RestAssuredwithBDD">
-        <test-method signature="extractResponseBody()[pri:0, instance:test.RestAssuredwithBDD@346d61be]" started-at="2021-09-08T21:34:09 IST" name="extractResponseBody" finished-at="2021-09-08T21:34:12 IST" duration-ms="3408" status="PASS">
+    <test started-at="2023-12-21T13:47:40 IST" name="Default test" finished-at="2023-12-21T13:47:44 IST" duration-ms="4497">
+      <class name="test.GETBooking">
+        <test-method is-config="true" signature="tearUp()[pri:0, instance:test.GETBooking@71def8f8]" started-at="2023-12-21T13:47:40 IST" name="tearUp" finished-at="2023-12-21T13:47:40 IST" duration-ms="7" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- extractResponseBody -->
-      </class> <!-- test.RestAssuredwithBDD -->
+        </test-method> <!-- tearUp -->
+        <test-method signature="inlineAndPathParameter()[pri:0, instance:test.GETBooking@71def8f8]" started-at="2023-12-21T13:47:40 IST" name="inlineAndPathParameter" finished-at="2023-12-21T13:47:43 IST" duration-ms="3210" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- inlineAndPathParameter -->
+        <test-method signature="pathParameter1()[pri:0, instance:test.GETBooking@71def8f8]" started-at="2023-12-21T13:47:43 IST" name="pathParameter1" finished-at="2023-12-21T13:47:44 IST" duration-ms="1236" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- pathParameter1 -->
+      </class> <!-- test.GETBooking -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

@@ -16,6 +16,7 @@ public class HandlingdynamicJsonUsingInstanceOf {
 		Response res = RestAssured.given()
 		.get("https://run.mocky.io/v3/47556716-a28e-4e37-b4d5-e2cde28ae67c");
 		
+		
 		Object responseObject = res.as(Object.class);
 		
 		if(responseObject instanceof List)
@@ -27,7 +28,11 @@ public class HandlingdynamicJsonUsingInstanceOf {
 		else if(responseObject instanceof Map)
 		{
 			System.out.println("Inside Map Instance");
-			Map m = (Map) responseObject;
+			
+			@SuppressWarnings("unchecked")
+			Map<String,Object> m = (Map<String,Object>) responseObject;
+			
+			m.keySet().forEach(e ->System.out.println(e));
 			System.out.println(m.get("first_Name"));
 		}
 
